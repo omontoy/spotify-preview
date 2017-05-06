@@ -1,0 +1,63 @@
+
+body {
+   background: url('https://upload.wikimedia.org/wikipedia/commons/8/8f/Tomorrowland2015.jpg') no-repeat center center fixed;   
+   background-size: cover;   
+   font-family: 'Open Sans', sans-serif;
+   font-size: 18px;
+}
+
+#wrapper {
+   background-color: white;
+   border: 1px grey;
+   border-radius: 10px;
+}
+
+.container {
+   margin-top: 30px;
+   margin-bottom: 20px;
+}
+
+img {
+   border: 1px solid grey;
+   height: 150px;
+   width: 150px;
+   margin-right: 30px;
+   margin-left: 10px;
+}
+
+audio {
+   border: 2px solid grey;
+   width: 100%;
+}
+
+button {
+   margin-top: 10px;
+}
+
+a:hover {
+  color: rgb(86, 176, 11);
+}
+
+#modalCentralImage {
+  margin-top: 10px;
+}
+
+#artistsId {
+  display: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+#modalArtistsImages {
+  display: none;
+}
+
+#modalAudio {
+  margin-top: 10px;
+}
+
+hr {
+  border-top: 3px double #8c8b8b;
+}

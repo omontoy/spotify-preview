@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <title>Spotify Preview</title>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container" >
+    <div class="col-sm-6 col-sm-offset-3" id="wrapper">
+      
+      <h1 class="text-center">Spotify Preview</h1> 
+
+      <div class="form-group">
+        <input type="text" class="form-control input-lg" placeholder="Busca una canción o artista"> 
+      </div>
+
+      <table class="table">
+        <tbody></tbody>
+      </table>
+
+    </div>  
+
+  </div>
+
+  <script id="songs-template" type="text/x-handlebars-template">
+    {{#each songs}}
+      <tr>
+        <td><img src="{{album.images.[0].url}}" class="img-circle"></td>
+
+        <td>
+         <strong>{{name}}</strong>
+         <p>{{album.artists.[0].name}}</p>  
+
+         <audio controls controlsList="nodownload">
+            <source src="{{preview_url}}">
+         </audio>
+
+          <br><button class="btn btn-info">See more</button>
+
+          <div class="modal" id="myModal" role="dialog">
+            <div class="modal-dialog">
+              
+              <div class="modal-content">
+
+                <div class="modal-header">
+                  <span class="close" data-dismiss="modal">&times;</span>
+                  <h1 class="modal-title text-center">
+                    <a href="{{album.artists.[0].external_urls.spotify}}" target="_blank"> 
+                      <i class="fa fa-play-circle" aria-hidden="true"></i> {{name}} 
+                      <i class="fa fa-spotify" aria-hidden="true" style="font-size:35px;color:#2ebd59"></i>
+                    </a>
+                  </h1>
+                </div>
+
+                <div class="modal-body">
+                  <div class="row">
+
+                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                      <audio controls controlsList="nodownload" id="modalAudio">
+                         <source src="{{preview_url}}">
+                      </audio>
+                    </div>
+
+                    <div class="col-sm-4 text-center">
+                      <h3>
+                        <i class="fa fa-user-o" aria-hidden="true"></i>
+                        {{album.artists.[0].name}}
+                      </h3>
+
+                      <p>
+                        <a href="{{album.external_urls.spotify}}" target="_blank"> 
+                          <i class="fa fa-th-list" aria-hidden="true"></i> Album
+                          <i class="fa fa-spotify" aria-hidden="true" style="font-size:22px;color:#2ebd59"></i>
+                        </a>  
+                      </p>
+
+                    </div>
+
+                    <div class="col-sm-4 text-center">
+                        <img src="{{album.images.[0].url}}" class="img-circle" id="modalCentralImage">
+                    </div>
+
+                    <div class="col-sm-4 text-center">
+                      <h3>Duration</h3>
+                      <p id="duration">{{duration_ms}}ms</p>
+
+                      <h3>Popularity</h3>
+                      <p>{{popularity}}/100</p>
+                    </div>
+
+                    <div class="col-sm-8 col-sm-offset-2 text-center">
+                      <hr>
+                      <h2><strong>Artists</strong></h2>
+                        <ul>
+                        {{#each artists}}
+                          <li id="nombres">
+                            <table>
+                              <tbody>
+                                <tr>
+                                  <td><i class="fa fa-user-o" aria-hidden="true"></i> 
+                                  <a href="#" id="clickear">{{name}}</a></td>
+                                  <td><br><img src="" class="img-circle" id="modalArtistsImages"></td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </li>
+
+                          <li id="artistsId">{{this.id}}</li>
+                        {{/each}}
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    {{/each}}   
+  </script>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.3/handlebars.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <script src="app.js"></script>
+
+</body>
+</html>

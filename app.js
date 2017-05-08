@@ -35,6 +35,17 @@ $('table').on('click','button',function(){
 
    });
 
+   function duration(millis) {
+     var minutes = Math.floor(millis / 60000);
+     var seconds = ((millis % 60000) / 1000).toFixed(0);
+     return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+   }
+
+   getPduration = $(modal).find('#duration')[0];
+   str = $(getPduration).text();
+   number = parseInt(str);
+   $(getPduration).text(duration(number));
+
    $(span).click(function() {
      $(modal).hide();
    });

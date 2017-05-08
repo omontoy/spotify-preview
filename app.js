@@ -41,9 +41,11 @@ $('table').on('click','button',function(){
      return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
    }
 
-   getPduration = $(modal).find('#duration')[0];
-   str = $(getPduration).text();
+   getPdurationMS = $(modal).find('#durationMS')[0];
+   str = $(getPdurationMS).text();
    number = parseInt(str);
+
+   getPduration = $(modal).find('#duration')[0];
    $(getPduration).text(duration(number));
 
    $(span).click(function() {

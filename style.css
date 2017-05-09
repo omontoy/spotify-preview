@@ -65,3 +65,7 @@ hr {
 #durationMS {
   display: none;
 }
+
+#listArtistsTitle {
+  text-decoration: underline;
+}

@@ -7,18 +7,13 @@ $(document).on('ajaxStart', function() {
 $('input').on('keypress', function(e) {
    if(e.which === 13 && $('input').val().length > 0){
       var artist = $(this).val();
+      $('tbody').html("");
       $.getJSON("https://api.spotify.com/v1/search?q="+ artist +"&type=track,artist", function(answer){
          var template = Handlebars.compile($('#songs-template').html());
          $('tbody').html(template({ songs: answer.tracks.items }));
       });
 
       $('input').val("");
-   }
-});
-
-$('input').on('keypress', function(e) {
-   if(e.which === 13 && $('input').val() != ""){
-      $('tbody').html("");
    }
 });
 

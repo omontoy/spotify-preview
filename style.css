@@ -1,6 +1,5 @@
-
 body {
-   background: url('https://upload.wikimedia.org/wikipedia/commons/8/8f/Tomorrowland2015.jpg') no-repeat center center fixed;   
+   background: url('img/Tomorrowland2015.jpg') no-repeat center center fixed;   
    background-size: cover;   
    font-family: 'Open Sans', sans-serif;
    font-size: 18px;
@@ -69,3 +68,16 @@ hr {
 #listArtistsTitle {
   text-decoration: underline;
 }
+
+#loading {
+  display: none;
+}
+
+#loading img {
+  border: 2px solid white;
+}
+
+#responsive-image {  
+  width: 100%;  
+  height: auto; 
+} 

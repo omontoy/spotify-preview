@@ -1,3 +1,9 @@
+$(document).on('ajaxStart', function() {
+  $('#loading').show();
+}).on('ajaxStop', function() {
+  $('#loading').hide();
+});
+
 $('input').on('keypress', function(e) {
    if(e.which === 13 && $('input').val().length > 0){
       var artist = $(this).val();
